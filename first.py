@@ -1,4 +1,3 @@
-
 # prompt = "\nPlease enter the age of you:"
 # prompt += "\n(Enter 'quit' when you are finished.)"
 # Active = True
@@ -28,7 +27,7 @@
 # for config_user in config_users:
 #     print(config_user.title())
 
-#-----问卷调查-------
+# -----问卷调查-------
 # responses = {}
 # Active = True
 # while Active:
@@ -44,7 +43,7 @@
 # for name, response in responses.items():
 #     print(name.title() + " would like to visit the  " + response.title() + ".")
 
-#---三明治----
+# ---三明治----
 # sandwich_orders = ['apple', 'banner', 'tomato', 'pastrami', 'pastrami', 'orange', 'pastrami', 'pastrami']
 # finished_sandwiches =[]
 # print("The beer all sals out!")
@@ -56,7 +55,7 @@
 # for sandwiched in finished_sandwiches:
 #     print(sandwiched)
 
-#---牛肉----
+# ---牛肉----
 # sandwich_orders = ['apple', 'banner', 'tomato', 'pastrami', 'pastrami', 'orange', 'pastrami', 'pastrami']
 # finished_sandwiches =[]
 # print("The beer all sals out!")
@@ -77,7 +76,7 @@
 #     for_name = get_formatted_name(f_name, l_name)
 #     print("\nHello, " + for_name + "!")
 
-#---音乐专辑----
+# ---音乐专辑----
 # def make_album(songer, album, num = ''):
 #     if num:
 #         album = {'名字': songer.title(), '专辑': album, '数量': num}
@@ -102,8 +101,60 @@
 # for i in albums:
 #     print(i)
 
-def get_users(names):
-    for name in names:
-        print("Hello, " + name.title() + "!")
-users_name = ['ken', 'rola', 'Kim', 'herry']
-get_users(users_name)
+# def get_users(names):
+#     for name in names:
+#         print("Hello, " + name.title() + "!")
+# users_name = ['ken', 'rola', 'Kim', 'herry']
+# get_users(users_name)
+
+# 8.9 8.10 8.11
+# magics = ['Tim', 'ken', 'rola', 'hole']
+# re_magic = []
+# def show_magicians(names):
+#     for name in names:
+#         print(name.title())
+# def make_great(magic , re_magic):
+#     while magic:
+#         rename = magic.pop()
+#         re_magic.append(rename + ' the Great')
+#
+# make_great(magics[:], re_magic)
+# show_magicians(magics)
+# show_magicians(re_magic)
+
+# 8.12
+
+
+def sandwish(*foods):
+    print("\nThe sandwish has :")
+    for food in foods:
+        print(' - ' + food)
+
+
+sandwish('banner', 'apple', 'meet', 'beer')
+
+
+# 8.13
+
+def build_profile(first, last, **user_info):
+    """ 创建一个字典，其中包含我们知道的有关用户的一切"""
+    profile = {'fisrt_name': first, "last_name": last}
+    for key, value in user_info.items():
+        profile[key] = value
+    return profile
+
+
+print(build_profile('super', 'X man', age='18', location='china', tall='100', wight='100'))
+
+
+#  8.14
+
+def make_car(maker, model, **infos):
+    car_info = {'maker': maker, 'model': model}
+    for key, value in infos.items():
+        car_info[key] = value
+    return car_info
+
+
+car = make_car('subaru', 'outback', color='blue', tow_package=True)
+print(car)
