@@ -6,4 +6,6 @@ class Settings:
         #屏幕设置
         self.screen_width = 800
         self.screen_height = 600
-        self.screen_bg_color = (255, 255, 204)
+        self.screen_bg_color = (0, 0, 0)
+        self.screen_bg_image = 'images/bg.jpg'
+        self.ship_speed_factor = 2.5
