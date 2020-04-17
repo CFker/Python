@@ -9,3 +9,9 @@ class Settings:
         self.screen_bg_color = (0, 0, 0)
         self.screen_bg_image = 'images/bg.jpg'
         self.ship_speed_factor = 2.5
+
+        #子弹设置
+        self.bullet_speed_factor = 5
+        self.bullet_width = 3
+        self.bullet_height = 15
+        self.bullet_color = (255, 255, 0)
