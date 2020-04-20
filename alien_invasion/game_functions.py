@@ -24,10 +24,6 @@ def check_events(ai_settings, screen, ship, bullets):
         if event.type == pygame.QUIT:
             sys.exit()
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-
         elif event.type == pygame.KEYDOWN:
             check_keydown_events(event, ship, ai_settings, screen, bullets)
 
