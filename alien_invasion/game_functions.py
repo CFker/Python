@@ -4,13 +4,6 @@ import pygame
 from bullet import Bullet
 
 
-def check_events():
-    """响应按键和鼠标事件"""
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-
-
 def update_screen(ai_settings, screen, ship, screen_image, bullets):
     """更新屏幕上的图像，并切换到新屏幕"""
     # 每次循环都会重绘屏幕
@@ -27,6 +20,10 @@ def update_screen(ai_settings, screen, ship, screen_image, bullets):
 
 def check_events(ai_settings, screen, ship, bullets):
     """响应按键和鼠标事件"""
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
