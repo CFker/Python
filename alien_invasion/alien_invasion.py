@@ -32,12 +32,8 @@ def run_game():
         gf.check_events(ai_settings, screen, ship, bullets)
 
         ship.update()
-        gf.update_bullets(aliens, bullets)
-        gf.update_aliens(ai_settings, aliens)
-        #删除已经消失的子弹
-        for bullet in bullets.copy():
-            if bullet.rect.bottom <= 0:
-                bullets.remove(bullet)
+        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+        gf.update_aliens(ai_settings, ship, aliens)
 
         #每次循环都会重绘屏幕
         #让最近绘制屏幕可见

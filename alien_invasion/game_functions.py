@@ -126,12 +126,32 @@ def change_fleet_direction(ai_settings, aliens):
     ai_settings.fleet_direction *= -1
 
 
-def update_aliens(ai_settings, aliens):
+def update_aliens(ai_settings, ship, aliens):
     """更新外星人群众所有外星人的位置"""
     check_fleet_edges(ai_settings, aliens)
     aliens.update()
 
-def update_bullets(aliens, bullets):
+    if pygame.sprite.spritecollideany(ship, aliens):
+        print("Ship hit!!!")
+
+
+def update_bullets(ai_settings, screen, ship, aliens, bullets):
     """更新子弹群众所有外星人的位置"""
     bullets.update()
+
+    # 删除已经消失的子弹
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
+
+    check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets)
+
+
+def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
+    """相应子弹和外星人的碰撞"""
+    #删除发生碰撞的子弹和外星人
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    if len(aliens) == 0:
+        bullets.empty()
+        create_fleet(ai_settings, screen, ship, aliens)
