@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-x_value = list(range(1, 5000))
+x_value = list(range(1, 50))
 print(x_value)
 y_value = [x**3 for x in x_value]
 print(y_value)
@@ -13,4 +13,4 @@ plt.ylabel("Square of Value", fontsize=14)
 plt.tick_params(axis='both', which='major', labelsize=14)
 # plt.axis([0, 5000, 0, 11000000])
 
-plt.show()
+plt.savefig('squares_plot.png', bbox_inches='tight')
